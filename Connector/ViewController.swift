@@ -8,13 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: NiblessViewController {
 
-	override func viewDidLoad() {
+    override func viewDidLoad() {
 		super.viewDidLoad()
+        #if DEBUG
+        registerDebug()
+        #endif
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
 
 }
 
+#if DEBUG
+extension ViewController: DebuggableContext {
+    var debugMenus: [DebuggableContextItem] {
+        return [
+            .init(name: "Test Connection") {
+
+            }
+        ]
+    }
+}
+#endif

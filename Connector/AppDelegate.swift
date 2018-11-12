@@ -11,11 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	var window: UIWindow?
+    #if DEBUG
+    var _shakeDetectingWindow: ShakeDetectingWindow?
+    var window: UIWindow? {
+        get {
+            return _shakeDetectingWindow ?? {
+                _shakeDetectingWindow = ShakeDetectingWindow(frame: UIScreen.main.bounds)
+                return _shakeDetectingWindow
+            } ()
+        }
+        set {}
+    }
+    #else
+    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    #endif
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+        window?.rootViewController = ViewController()
+        window?.makeKeyAndVisible()
 		return true
 	}
 
