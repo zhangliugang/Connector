@@ -65,5 +65,5 @@ lib/
 Podfile.lock
 xcshareddata
 R.generated.swift
-AuthKey_J6X225TX7N.p8
 *.xcworkspacedata
+*.p8
