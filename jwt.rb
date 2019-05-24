@@ -20,4 +20,4 @@ token = JWT.encode(
      kid: KEY_ID }
  )
  
-# puts token$ curl  https://api.appstoreconnect.apple.com/v1/users --Header "Authorization: Bearer lOOOOOOOOOOOONG_GENERATED_TOKEN"
+puts token #$ curl  https://api.appstoreconnect.apple.com/v1/users --Header "Authorization: Bearer lOOOOOOOOOOOONG_GENERATED_TOKEN"
